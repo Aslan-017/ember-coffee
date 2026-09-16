@@ -1,0 +1,637 @@
+/* ============================================================
+   EMBER COFFEE — main stylesheet
+   Created by Aslan Ulasbek & Sultonbek Ibrokhimov
+
+   Sections:
+   1. Fonts & CSS variables
+   2. Base element styles
+   3. Header & navigation
+   4. Buttons & shared helpers
+   5. Home page
+   6. Menu page
+   7. About page
+   8. Contact page (table + form)
+   9. Footer
+   10. Responsive (media queries)
+   ============================================================ */
+
+
+/* ---------- 1. Fonts & CSS variables ---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+    --espresso: #2b1d16;      /* darkest brown, used for dark sections */
+    --coffee: #6b4c35;        /* medium coffee brown */
+    --beige: #c9b49a;         /* muted beige, borders and small text */
+    --cream: #f6f1e8;         /* warm cream, page background */
+    --off-white: #fdfbf7;     /* lighter cream for cards */
+    --warm-gray: #7d736b;     /* body text that should sit back a little */
+
+    --heading-font: 'Playfair Display', Georgia, serif;
+    --body-font: 'DM Sans', Arial, sans-serif;
+}
+
+
+/* ---------- 2. Base element styles ---------- */
+
+* {
+    box-sizing: border-box;   /* padding and border stay inside the width */
+}
+
+body {
+    margin: 0;
+    background-color: var(--cream);
+    color: var(--espresso);
+    font-family: var(--body-font);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    font-weight: 400;
+    margin: 0 0 1rem 0;
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: 4rem;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+p {
+    margin: 0 0 1.2rem 0;
+    max-width: 62ch;          /* keeps lines comfortable to read */
+}
+
+a {
+    color: var(--espresso);
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul, ol {
+    padding-left: 1.2rem;
+}
+
+/* A page-width wrapper reused on every page */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Small uppercase label above headings */
+.label {
+    font-size: 0.8rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--coffee);
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    font-style: italic;
+    color: var(--coffee);
+}
+
+
+/* ---------- 3. Header & navigation ---------- */
+
+#main-header {
+    background-color: var(--cream);
+    border-bottom: 1px solid var(--beige);
+    padding: 1.4rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#main-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: var(--heading-font);
+    font-size: 1.6rem;
+    letter-spacing: 0.06em;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* descendant selector: links inside the navigation */
+.nav-menu a {
+    font-size: 0.95rem;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s, color 0.25s;
+}
+
+.nav-menu a:hover {
+    color: var(--coffee);
+    border-bottom-color: var(--coffee);
+}
+
+.nav-menu a:focus {
+    outline: 2px solid var(--coffee);
+    outline-offset: 4px;
+}
+
+/* active page marker */
+.nav-menu a.active {
+    border-bottom-color: var(--espresso);
+}
+
+
+/* ---------- 4. Buttons & shared helpers ---------- */
+
+.button {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    border: 1px solid var(--cream);
+    color: var(--cream);
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--cream);
+    color: var(--espresso);
+}
+
+.button:focus {
+    outline: 2px solid var(--beige);
+    outline-offset: 4px;
+}
+
+/* dark button used on light backgrounds */
+.button-dark {
+    border-color: var(--espresso);
+    color: var(--espresso);
+}
+
+.button-dark:hover {
+    background-color: var(--espresso);
+    color: var(--cream);
+}
+
+/* standard vertical rhythm for content sections */
+.section {
+    padding: 6rem 0;
+}
+
+/* smaller page header used on menu / about / contact */
+.page-header {
+    padding: 5rem 0 3rem 0;
+    border-bottom: 1px solid var(--beige);
+}
+
+.page-header p {
+    color: var(--warm-gray);
+    font-size: 1.15rem;
+}
+
+
+/* ---------- 5. Home page ---------- */
+
+.hero {
+    position: relative;
+    height: 88vh;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* dark overlay so the text stays readable on the photo */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 20, 15, 0.55);
+}
+
+.hero-text {
+    position: relative;   /* sits above the overlay */
+    color: var(--cream);
+    max-width: 40rem;
+}
+
+.hero-text .label {
+    color: var(--beige);
+}
+
+.hero-text h1 {
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+    color: var(--beige);
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+}
+
+/* two-column philosophy block */
+.philosophy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.philosophy ul {
+    color: var(--warm-gray);
+}
+
+/* three product cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.card {
+    background-color: var(--off-white);
+    border: 1px solid var(--beige);
+    padding: 1.2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(43, 29, 22, 0.12);
+}
+
+.card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+}
+
+.card-number {
+    font-family: var(--heading-font);
+    font-size: 0.95rem;
+    color: var(--coffee);
+    letter-spacing: 0.1em;
+}
+
+/* descendant selector: paragraphs inside a card */
+.card p {
+    color: var(--warm-gray);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+/* dark quote band */
+.quote {
+    background-color: var(--espresso);
+    color: var(--cream);
+    text-align: center;
+    padding: 7rem 0;
+}
+
+.quote h2 {
+    font-style: italic;
+    max-width: 22ch;
+    margin: 0 auto;
+}
+
+
+/* ---------- 6. Menu page ---------- */
+
+.menu-banner {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 4rem;
+}
+
+.menu-group {
+    margin-bottom: 4rem;
+}
+
+.menu-group h2 {
+    font-size: 1.6rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--beige);
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid rgba(201, 180, 154, 0.45);
+}
+
+.menu-item h3 {
+    margin: 0 0 0.3rem 0;
+}
+
+.menu-item p {
+    margin: 0;
+    color: var(--warm-gray);
+    font-size: 0.95rem;
+}
+
+.menu-price {
+    font-family: var(--heading-font);
+    font-size: 1.15rem;
+    white-space: nowrap;   /* the price never breaks onto two lines */
+}
+
+
+/* ---------- 7. About page ---------- */
+
+.story {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.story img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    text-align: center;
+}
+
+/* circular profile photo */
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem auto;
+    border: 1px solid var(--beige);
+    padding: 6px;
+}
+
+.team-role {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--coffee);
+    margin-bottom: 1rem;
+}
+
+.team-member p,
+.team-member ul {
+    text-align: left;
+    color: var(--warm-gray);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 34ch;
+}
+
+
+/* ---------- 8. Contact page (table + form) ---------- */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-info p {
+    margin-bottom: 0.4rem;
+}
+
+.contact-info h3 {
+    margin-top: 3rem;
+}
+
+.contact-info .detail-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--coffee);
+    margin-top: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+
+/* opening hours table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background-color: var(--off-white);
+}
+
+table th {
+    background-color: var(--espresso);
+    color: var(--cream);
+    font-family: var(--body-font);
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1rem;
+    text-align: left;
+}
+
+/* descendant selector: data cells inside a table */
+table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--beige);
+}
+
+table tr:hover td {
+    background-color: rgba(201, 180, 154, 0.18);
+}
+
+/* contact form */
+#contact-form {
+    background-color: var(--off-white);
+    border: 1px solid var(--beige);
+    padding: 2.5rem;
+}
+
+#contact-form label {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--coffee);
+    margin-bottom: 0.5rem;
+}
+
+.form-row {
+    margin-bottom: 1.5rem;
+}
+
+#contact-form input,
+#contact-form select,
+#contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--beige);
+    background-color: var(--cream);
+    font-family: var(--body-font);
+    font-size: 1rem;
+    color: var(--espresso);
+}
+
+#contact-form input:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--coffee);
+    background-color: var(--off-white);
+}
+
+#contact-form input[type="color"] {
+    height: 48px;
+    padding: 4px;
+}
+
+#contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+#contact-form button {
+    padding: 0.9rem 2.5rem;
+    border: 1px solid var(--espresso);
+    background-color: var(--espresso);
+    color: var(--cream);
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: transparent;
+    color: var(--espresso);
+}
+
+
+/* ---------- 9. Footer ---------- */
+
+footer {
+    background-color: var(--espresso);
+    color: var(--beige);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+footer p {
+    max-width: 100%;
+    margin: 0 0 0.4rem 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--cream);
+    border-bottom: 1px solid transparent;
+}
+
+footer a:hover {
+    border-bottom-color: var(--cream);
+}
+
+
+/* ---------- 10. Responsive (media queries) ---------- */
+
+@media (max-width: 800px) {
+
+    h1 {
+        font-size: 2.6rem;
+    }
+
+    h2 {
+        font-size: 1.9rem;
+    }
+
+    #main-header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-menu {
+        gap: 1.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        height: auto;
+        padding: 5rem 0;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    /* every multi-column layout becomes a single column */
+    .philosophy,
+    .card-grid,
+    .story,
+    .team-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .menu-item {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    #contact-form {
+        padding: 1.5rem;
+    }
+}
