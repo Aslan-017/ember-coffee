@@ -6,129 +6,175 @@
     <title>EMBER COFFEE | Visit Us</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <header id="main-header">
+<header id="main-header">
+    <div class="container">
+        <a href="index.html" class="logo">EMBER.</a>
+
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="contact.html" class="active">Visit Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<main>
+
+    <section class="page-header">
         <div class="container">
-            <a href="index.html" class="logo">EMBER.</a>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">Our Story</a></li>
-                    <li><a href="contact.html" class="active">Visit Us</a></li>
-                </ul>
-            </nav>
+            <h1>Find your<br>corner.</h1>
+            <p>Come for the coffee. Stay for the atmosphere.</p>
         </div>
-    </header>
+    </section>
 
-    <main>
 
-        <section class="page-header">
-            <div class="container">
-                <h1>Find your<br>corner.</h1>
-                <p>Come for the coffee. Stay for the atmosphere.</p>
-            </div>
-        </section>
+    <section class="section">
+        <div class="container contact-grid">
 
-        <section class="section">
-            <div class="container contact-grid">
+            <!-- Contact details + opening hours table -->
+            <div class="contact-info">
 
-                <!-- Contact details + opening hours table -->
-                <div class="contact-info">
-                    <img src="images/cappuccino.jpg" alt="Cappuccino on a wooden table by the window at EMBER COFFEE" class="menu-banner">
+                <img src="images/cappuccino.jpg"
+                     alt="Cappuccino on a wooden table by the window at EMBER COFFEE"
+                     class="menu-banner">
 
-                    <h2>EMBER COFFEE</h2>
+                <h2>EMBER COFFEE</h2>
 
-                    <p class="detail-label">Address</p>
-                    <p>Astana, Kazakhstan</p>
+                <p class="detail-label">Address</p>
+                <p>Astana, Kazakhstan</p>
 
-                    <p class="detail-label">Email</p>
-                    <p><a href="mailto:hello@embercoffee.example">hello@embercoffee.example</a></p>
+                <p class="detail-label">Email</p>
+                <p>
+                    <a href="mailto:hello@embercoffee.example">
+                        hello@embercoffee.example
+                    </a>
+                </p>
 
-                    <p class="detail-label">Phone</p>
-                    <p>+7 700 000 00 00</p>
+                <p class="detail-label">Phone</p>
+                <p>+7 700 000 00 00</p>
 
-                    <h3>Opening hours</h3>
-                    <table>
-                        <tr>
-                            <th>Day</th>
-                            <th>Opening</th>
-                            <th>Closing</th>
-                        </tr>
-                        <tr>
-                            <td>Monday - Friday</td>
-                            <td>08:00</td>
-                            <td>22:00</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td>09:00</td>
-                            <td>23:00</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday</td>
-                            <td>09:00</td>
-                            <td>21:00</td>
-                        </tr>
-                    </table>
-                </div>
+                <h3>Opening hours</h3>
 
-                <!-- Contact form -->
-                <div>
-                    <h2>Write to us.</h2>
-                    <p>Questions, private events or a coffee you would like us to bring back — send us a note.</p>
+                <table>
+                    <tr>
+                        <th>Day</th>
+                        <th>Opening</th>
+                        <th>Closing</th>
+                    </tr>
 
-                    <form id="contact-form">
+                    <tr>
+                        <td>Monday - Friday</td>
+                        <td>08:00</td>
+                        <td>22:00</td>
+                    </tr>
 
-                        <div class="form-row">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name">
-                        </div>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>09:00</td>
+                        <td>23:00</td>
+                    </tr>
 
-                        <div class="form-row">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com">
-                        </div>
-
-                        <div class="form-row">
-                            <label for="favorite">Favorite coffee</label>
-                            <select id="favorite" name="favorite">
-                                <option value="espresso">Espresso</option>
-                                <option value="americano">Americano</option>
-                                <option value="latte">Velvet Latte</option>
-                                <option value="cappuccino">Cappuccino</option>
-                                <option value="flat-white">Flat White</option>
-                                <option value="cold-brew">Cold Brew</option>
-                            </select>
-                        </div>
-
-                        <div class="form-row">
-                            <label for="color">Pick a color for your cup</label>
-                            <input type="color" id="color" name="color" value="#6b4c35">
-                        </div>
-
-                        <div class="form-row">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Tell us what you need"></textarea>
-                        </div>
-
-                        <button type="submit">Send message</button>
-
-                    </form>
-                </div>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>09:00</td>
+                        <td>21:00</td>
+                    </tr>
+                </table>
 
             </div>
-        </section>
 
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>EMBER COFFEE · Astana, Kazakhstan</p>
-            <p>Created by Aslan Ulasbek &amp; Sultonbek Ibrokhimov</p>
+            <!-- Contact form -->
+            <div>
+
+                <h2>Write to us.</h2>
+
+                <p>
+                    Questions, private events or a coffee you would like us
+                    to bring back - send us a note.
+                </p>
+
+                <form id="contact-form">
+
+                    <div class="form-row">
+                        <label for="name">Name</label>
+                        <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Your name">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="favorite">Favorite coffee</label>
+
+                        <select id="favorite" name="favorite">
+                            <option value="espresso">Espresso</option>
+                            <option value="americano">Americano</option>
+                            <option value="latte">Velvet Latte</option>
+                            <option value="cappuccino">Cappuccino</option>
+                            <option value="flat-white">Flat White</option>
+                            <option value="cold-brew">Cold Brew</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="color">Pick a color for your cup</label>
+
+                        <input
+                                type="color"
+                                id="color"
+                                name="color"
+                                value="#6b4c35">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="message">Message</label>
+
+                        <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Tell us what you need"></textarea>
+                    </div>
+
+                    <button type="submit">Send message</button>
+
+                </form>
+
+            </div>
+
         </div>
-    </footer>
+    </section>
+
+</main>
+
+
+<footer>
+    <div class="container">
+        <p>EMBER COFFEE · Astana, Kazakhstan</p>
+
+        <p>
+            Created by Aslan Ulasbek &amp; Sultonbek Ibrokhimov
+        </p>
+    </div>
+</footer>
 
 </body>
 </html>
