@@ -11,8 +11,10 @@
    6. Menu page
    7. About page
    8. Contact page (table + form)
-   9. Footer
-   10. Responsive (media queries)
+   9. Gallery page
+   10. Page layout with CSS Grid
+   11. Footer
+   12. Responsive (media queries)
    ============================================================ */
 
 
@@ -21,12 +23,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
-    --espresso: #2b1d16;      /* darkest brown, used for dark sections */
-    --coffee: #6b4c35;        /* medium coffee brown */
-    --beige: #c9b49a;         /* muted beige, borders and small text */
-    --cream: #f6f1e8;         /* warm cream, page background */
-    --off-white: #fdfbf7;     /* lighter cream for cards */
-    --warm-gray: #7d736b;     /* body text that should sit back a little */
+    --espresso: #2b1d16;
+    --coffee: #6b4c35;
+    --beige: #c9b49a;
+    --cream: #f6f1e8;
+    --off-white: #fdfbf7;
+    --warm-gray: #7d736b;
 
     --heading-font: 'Playfair Display', Georgia, serif;
     --body-font: 'DM Sans', Arial, sans-serif;
@@ -36,7 +38,7 @@
 /* ---------- 2. Base element styles ---------- */
 
 * {
-    box-sizing: border-box;   /* padding and border stay inside the width */
+    box-sizing: border-box;
 }
 
 body {
@@ -48,7 +50,9 @@ body {
     line-height: 1.7;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--heading-font);
     font-weight: 400;
     margin: 0 0 1rem 0;
@@ -70,7 +74,7 @@ h3 {
 
 p {
     margin: 0 0 1.2rem 0;
-    max-width: 62ch;          /* keeps lines comfortable to read */
+    max-width: 62ch;
 }
 
 a {
@@ -83,18 +87,23 @@ img {
     max-width: 100%;
 }
 
-ul, ol {
+ul,
+ol {
     padding-left: 1.2rem;
 }
 
+
 /* A page-width wrapper reused on every page */
+
 .container {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
 }
 
+
 /* Small uppercase label above headings */
+
 .label {
     font-size: 0.8rem;
     letter-spacing: 0.22em;
@@ -140,7 +149,9 @@ ul, ol {
     padding: 0;
 }
 
+
 /* descendant selector: links inside the navigation */
+
 .nav-menu a {
     font-size: 0.95rem;
     padding-bottom: 4px;
@@ -158,7 +169,9 @@ ul, ol {
     outline-offset: 4px;
 }
 
+
 /* active page marker */
+
 .nav-menu a.active {
     border-bottom-color: var(--espresso);
 }
@@ -187,7 +200,9 @@ ul, ol {
     outline-offset: 4px;
 }
 
+
 /* dark button used on light backgrounds */
+
 .button-dark {
     border-color: var(--espresso);
     color: var(--espresso);
@@ -198,12 +213,16 @@ ul, ol {
     color: var(--cream);
 }
 
+
 /* standard vertical rhythm for content sections */
+
 .section {
     padding: 6rem 0;
 }
 
+
 /* smaller page header used on menu / about / contact */
+
 .page-header {
     padding: 5rem 0 3rem 0;
     border-bottom: 1px solid var(--beige);
@@ -235,7 +254,9 @@ ul, ol {
     object-fit: cover;
 }
 
+
 /* dark overlay so the text stays readable on the photo */
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -246,7 +267,7 @@ ul, ol {
 }
 
 .hero-text {
-    position: relative;   /* sits above the overlay */
+    position: relative;
     color: var(--cream);
     max-width: 40rem;
 }
@@ -266,7 +287,9 @@ ul, ol {
     margin-bottom: 2.5rem;
 }
 
+
 /* two-column philosophy block */
+
 .philosophy {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -278,15 +301,19 @@ ul, ol {
     color: var(--warm-gray);
 }
 
+
 /* three product cards */
+
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 2.5rem;
     margin-top: 3rem;
 }
 
 .card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     background-color: var(--off-white);
     border: 1px solid var(--beige);
     padding: 1.2rem;
@@ -312,14 +339,26 @@ ul, ol {
     letter-spacing: 0.1em;
 }
 
+
 /* descendant selector: paragraphs inside a card */
+
 .card p {
     color: var(--warm-gray);
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
 }
 
+
+/* button stays at the bottom of each card */
+
+.card .button {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+
 /* dark quote band */
+
 .quote {
     background-color: var(--espresso);
     color: var(--cream);
@@ -375,7 +414,7 @@ ul, ol {
 .menu-price {
     font-family: var(--heading-font);
     font-size: 1.15rem;
-    white-space: nowrap;   /* the price never breaks onto two lines */
+    white-space: nowrap;
 }
 
 
@@ -405,7 +444,9 @@ ul, ol {
     text-align: center;
 }
 
+
 /* circular profile photo */
+
 .profile-img {
     width: 180px;
     height: 180px;
@@ -460,7 +501,9 @@ ul, ol {
     margin-bottom: 0.2rem;
 }
 
+
 /* opening hours table */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -480,7 +523,9 @@ table th {
     text-align: left;
 }
 
+
 /* descendant selector: data cells inside a table */
+
 table td {
     padding: 1rem;
     border-bottom: 1px solid var(--beige);
@@ -490,7 +535,9 @@ table tr:hover td {
     background-color: rgba(201, 180, 154, 0.18);
 }
 
+
 /* contact form */
+
 #contact-form {
     background-color: var(--off-white);
     border: 1px solid var(--beige);
@@ -559,7 +606,146 @@ table tr:hover td {
 }
 
 
-/* ---------- 9. Footer ---------- */
+/* ---------- 9. Gallery page ---------- */
+
+
+/* Gallery page layout uses CSS Grid */
+
+.page-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+}
+
+
+/* Assign page elements to grid areas */
+
+.page-layout > header {
+    grid-area: header;
+}
+
+.page-layout > aside {
+    grid-area: sidebar;
+}
+
+.page-layout > main {
+    grid-area: main;
+}
+
+.page-layout > footer {
+    grid-area: footer;
+}
+
+
+/* Gallery sidebar */
+
+.gallery-sidebar {
+    background-color: var(--off-white);
+    border-right: 1px solid var(--beige);
+    padding: 4rem 0;
+}
+
+.gallery-sidebar .container {
+    width: 80%;
+}
+
+.gallery-sidebar h3 {
+    font-size: 1.8rem;
+}
+
+.gallery-sidebar p {
+    color: var(--warm-gray);
+    font-size: 0.95rem;
+}
+
+
+/* Gallery main area */
+
+.gallery-main {
+    min-width: 0;
+}
+
+
+/* Gallery itself uses CSS Grid */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 3rem;
+}
+
+
+/* Individual gallery item */
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--off-white);
+    border: 1px solid var(--beige);
+}
+
+
+/* Equal image sizes */
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+
+/* Caption overlay */
+
+.gallery-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.2rem;
+    background-color: rgba(43, 29, 22, 0.82);
+    color: var(--cream);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.gallery-caption h3 {
+    margin: 0;
+    color: var(--cream);
+    font-size: 1.2rem;
+}
+
+
+/* Hover effect */
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ---------- 10. Page layout with CSS Grid ---------- */
+
+
+/* Extra layout styling for the gallery page */
+
+.page-layout .gallery-main .section {
+    min-height: 100%;
+}
+
+
+/* ---------- 11. Footer ---------- */
 
 footer {
     background-color: var(--espresso);
@@ -584,7 +770,17 @@ footer a:hover {
 }
 
 
-/* ---------- 10. Responsive (media queries) ---------- */
+/* ---------- 12. Responsive (media queries) ---------- */
+
+@media (max-width: 1000px) {
+
+    /* Gallery changes from 3 columns to 2 */
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 
 @media (max-width: 800px) {
 
@@ -595,6 +791,9 @@ footer a:hover {
     h2 {
         font-size: 1.9rem;
     }
+
+
+    /* Navigation becomes vertical */
 
     #main-header .container {
         flex-direction: column;
@@ -607,6 +806,7 @@ footer a:hover {
         justify-content: center;
     }
 
+
     .hero {
         height: auto;
         padding: 5rem 0;
@@ -616,9 +816,10 @@ footer a:hover {
         padding: 3.5rem 0;
     }
 
-    /* every multi-column layout becomes a single column */
+
+    /* Grid layouts become a single column */
+
     .philosophy,
-    .card-grid,
     .story,
     .team-grid,
     .contact-grid {
@@ -626,12 +827,60 @@ footer a:hover {
         gap: 2.5rem;
     }
 
+
+    /* Flexbox cards become a vertical column */
+
+    .card-grid {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+
     .menu-item {
         flex-direction: column;
         gap: 0.4rem;
     }
 
+
     #contact-form {
         padding: 1.5rem;
+    }
+
+
+    /* Page layout becomes vertical */
+
+    .page-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+    }
+
+
+    .gallery-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--beige);
+        padding: 2.5rem 0;
+    }
+
+    .gallery-sidebar .container {
+        width: 90%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    /* Gallery becomes one column on mobile */
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 280px;
     }
 }
