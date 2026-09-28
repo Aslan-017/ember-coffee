@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EMBER COFFEE | Visit Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <header id="main-header">
-    <div class="container">
-        <a href="index.html" class="logo">EMBER.</a>
-
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="about.html">Our Story</a></li>
-                <li><a href="contact.html" class="active">Visit Us</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-            </ul>
-        </nav>
-    </div>
+    <nav class="navbar navbar-expand-lg py-3" aria-label="Main navigation">
+        <div class="container px-sm-2">
+            <a href="index.html" class="navbar-brand logo">EMBER.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#primary-navigation" aria-controls="primary-navigation"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="primary-navigation">
+                <ul class="navbar-nav ms-auto nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">Our Story</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active" aria-current="page">Visit Us</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
 
 
@@ -37,14 +44,15 @@
 
 
     <section class="section">
-        <div class="container contact-grid">
+        <div class="container">
+        <div class="row g-5">
 
             <!-- Contact details + opening hours table -->
-            <div class="contact-info">
+            <div class="contact-info col-12 col-lg-5">
 
                 <img src="images/cappuccino.jpg"
                      alt="Cappuccino on a wooden table by the window at EMBER COFFEE"
-                     class="menu-banner">
+                     class="menu-banner mb-5">
 
                 <h2>EMBER COFFEE</h2>
 
@@ -63,13 +71,17 @@
 
                 <h3>Opening hours</h3>
 
-                <table>
+                <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
                     <tr>
-                        <th>Day</th>
-                        <th>Opening</th>
-                        <th>Closing</th>
+                        <th scope="col">Day</th>
+                        <th scope="col">Opening</th>
+                        <th scope="col">Closing</th>
                     </tr>
+                    </thead>
 
+                    <tbody>
                     <tr>
                         <td>Monday - Friday</td>
                         <td>08:00</td>
@@ -87,13 +99,15 @@
                         <td>09:00</td>
                         <td>21:00</td>
                     </tr>
+                    </tbody>
                 </table>
+                </div>
 
             </div>
 
 
             <!-- Contact form -->
-            <div>
+            <div class="col-12 col-lg-7">
 
                 <h2>Write to us.</h2>
 
@@ -102,30 +116,35 @@
                     to bring back - send us a note.
                 </p>
 
-                <form id="contact-form">
+                <form id="contact-form" class="p-4 p-md-5">
 
-                    <div class="form-row">
-                        <label for="name">Name</label>
+                    <div class="form-row mb-4">
+                        <label for="name" class="form-label">Name</label>
                         <input
                                 type="text"
                                 id="name"
                                 name="name"
-                                placeholder="Your name">
+                                placeholder="Your name"
+                                class="form-control">
                     </div>
 
-                    <div class="form-row">
-                        <label for="email">Email</label>
+                    <div class="form-row mb-4">
+                        <label for="email" class="form-label">Email</label>
+                        <div class="input-group">
+                        <span class="input-group-text" aria-hidden="true">@</span>
                         <input
                                 type="email"
                                 id="email"
                                 name="email"
-                                placeholder="you@example.com">
+                                placeholder="you@example.com"
+                                class="form-control">
+                        </div>
                     </div>
 
-                    <div class="form-row">
-                        <label for="favorite">Favorite coffee</label>
+                    <div class="form-row mb-4">
+                        <label for="favorite" class="form-label">Favorite coffee</label>
 
-                        <select id="favorite" name="favorite">
+                        <select id="favorite" name="favorite" class="form-select">
                             <option value="espresso">Espresso</option>
                             <option value="americano">Americano</option>
                             <option value="latte">Velvet Latte</option>
@@ -135,29 +154,32 @@
                         </select>
                     </div>
 
-                    <div class="form-row">
-                        <label for="color">Pick a color for your cup</label>
+                    <div class="form-row mb-4">
+                        <label for="color" class="form-label">Pick a color for your cup</label>
 
                         <input
                                 type="color"
                                 id="color"
                                 name="color"
-                                value="#6b4c35">
+                                value="#6b4c35"
+                                class="form-control form-control-color">
                     </div>
 
-                    <div class="form-row">
-                        <label for="message">Message</label>
+                    <div class="form-row mb-4">
+                        <label for="message" class="form-label">Message</label>
 
                         <textarea
                                 id="message"
                                 name="message"
-                                placeholder="Tell us what you need"></textarea>
+                                placeholder="Tell us what you need"
+                                class="form-control"></textarea>
                     </div>
 
-                    <button type="submit">Send message</button>
+                    <button class="btn btn-primary button" type="submit">Send message</button>
 
                 </form>
 
+            </div>
             </div>
 
         </div>
@@ -176,5 +198,6 @@
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
